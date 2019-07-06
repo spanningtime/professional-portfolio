@@ -13,11 +13,8 @@ $(document).ready(function() {
         $activeNavItem.append($(this).find('.svg-text').html())
         setTimeout(function() {
             $activeNavItem.css('color', shapeBgColor).addClass('is-active');
+            $selfPhoto.addClass('back').children().eq(0).attr('src', 'assets/left-arrow.svg');
          }, 1000);
-        // $(this).delay(1000).queue(function() {
-        //     $activeNavItem.css('color', shapeBgColor).addClass('is-active');
-        // })
-        $selfPhoto.addClass('back').children().eq(0).attr('src', 'assets/left-arrow.svg');
     })
 
     $selfPhoto.on('click', function() {

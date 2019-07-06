@@ -106,6 +106,58 @@ nav {
                 width: 100%;
             }
         }
+
+        .resume {
+            position: absolute;
+            width: 100px;
+            left: 2%;
+            top: 175px;
+            svg {
+                width: 100%;
+            }
+        }
+
+        .shape-triangle {
+            position: absolute;
+            width: 100px;
+            right: -2%;
+            top: -17px;
+            svg {
+                width: 100%;
+            }
+        }
+
+        .shape2 {
+            position: absolute;
+            width: 130px;
+            left: 22%;
+            top: 200px;
+            transform: rotate(24deg);
+            svg {
+                width: 100%;
+            }
+        }
+
+        .education {
+            position: absolute;
+            width: 175px;
+            left: 55%;
+            top: 275px;
+            svg {
+                width: 100%;
+            }
+        }
+
+        .shape-redbow {
+            position: absolute;
+            width: 100px;
+            left: 55%;
+            top: 160px;
+            svg {
+                width: 100%;
+            }
+        }
+        
     }
 }
 
@@ -143,14 +195,30 @@ nav {
 .contact-1 { 
     fill:#c5b5e3;
 }
+.triangle-1 { 
+    fill:#d2d058;
+}
+.resume-1{fill:#f59236;}
+.shape2-1{fill:#81c26b;}
+.education-1{fill:#6baae3;}
+.redbow-1{fill:#ec4c30;}
 
-@keyframes fadeIn {
-    from {
+@keyframes fadeIn{
+    0%{
       opacity: 0;
+      transform: scale(0.3) translate3d(0,0,0);
     }
-  
-    to {
+    50%{
+      opacity: 0.9;
+      transform: scale(1.1);
+    }
+    80%{
       opacity: 1;
+      transform: scale(0.89);
+    }
+    100%{
+      opacity: 1;
+      transform: scale(1) translate3d(0,0,0);
     }
   }
 
