@@ -1,0 +1,96 @@
+// Key Frames
+
+@keyframes swing {
+    0% {
+      transform: rotate(-2deg) translate3d(-20px, 10px, 0);
+      opacity: .5;
+    }
+    25% {
+      transform: rotate(-1deg) translate3d(-15px, -10px, 0);
+      opacity: .75;
+    }
+    50% {
+      transform: rotate(1deg) translate3d(15px, -10px, 0);
+      opacity: 1;
+    }
+    75% {
+      transform: rotate(-1deg) translate3d(0px, 0px, 0);
+      opacity: .75;
+    }
+    100% {
+      transform: rotate(-2deg) translate3d(-20px, 10px, 0);
+      opacity: .5;
+    }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 50%, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.animate {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  opacity: 0;
+}
+
+.delay1 {
+	animation-delay: .8s;
+}
+
+.delay2 {
+	animation-delay: 1.5s;
+}
+
+.swing {
+  animation-name: swing;
+  animation-duration: 20s;
+  animation-iteration-count: infinite;
+  opacity: .5;
+  transform: rotate(-2deg) translate3d(-20px, 10px, 0);
+  transition: all .25s linear;
+}
+
+
+.fp-completely .fadeIn {
+  animation-name: fadeIn;
+}
+
+
+.fp-completely .fadeInUp {
+  animation-name: fadeInUp;
+}
+
+
+@keyframes slideHrLeft {
+  from {
+    transform: translateX(0)
+  }
+
+  to {
+    transform: translateX(-768px);
+  }
+}
+
+.slide-hr-left {
+  animation: slideHrLeft 5s forwards;
+}
+
+

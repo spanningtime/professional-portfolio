@@ -1,0 +1,48 @@
+
+
+// Utility
+@function calculateRem($size) {
+  $remSize: $size / 16px;
+  @return $remSize * 1rem;
+}
+@mixin font-size($size) {
+  font-size: $size;
+  font-size: calculateRem($size);
+}
+
+html {
+    line-height: 1.1;
+    @include font-size(16px);
+    overflow-y: scroll;
+    min-height: 100%;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: 'Roboto';
+    font-size: 1rem;
+}
+
+.svg-text {
+  font-family: 'Roboto';
+}
+
+h1 {
+}
+
+h3 {
+  @include font-size(16px);
+}
+
+.intro__copy {
+  @include font-size(28px);
+}
+
+.white {
+  color: $white;
+}
+
+.card-info {
+  @include font-size(28px);
+}
