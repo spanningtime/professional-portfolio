@@ -5,7 +5,8 @@ $(document).ready(function() {
     var $activeNavItem = $('.active-nav-item');
     var $selfPhoto = $('.self-photo');
 
-    $navItem.on('click', function() {
+    $navItem.on('click', function(e) {
+        console.log(e.target)
         $activeNavItem.text('')
         var shapeBgColor = $(this).find('.svg-background').css('fill');
         $hr.addClass('slide-hr-left');
@@ -19,7 +20,7 @@ $(document).ready(function() {
 
     $selfPhoto.on('click', function() {
         if ($(this).hasClass('back')) {
-            $selfPhoto.children().eq(0).attr('src', 'assets/temp-me.jpg').css('border', '10px solid #f59236');
+            $selfPhoto.children().eq(0).attr('src', 'assets/me.png').css('border', '10px solid #f59236');
             $activeNavItem.removeClass('is-active').text('');
             $navCurtain.addClass('curtain-up');
             $selfPhoto.removeClass('back');
@@ -29,7 +30,7 @@ $(document).ready(function() {
             setTimeout(function() {
                $hr.removeClass('slide-hr-right slide-hr-left');
                $navCurtain.removeClass('curtain-down curtain-up')
-            }, 1500);
+            }, 1000);
         }
         else {
             $(this).children().eq(0).css('border', '0')

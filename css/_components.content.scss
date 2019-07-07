@@ -61,8 +61,15 @@ nav {
     padding: 1rem 2rem;
     margin-top: -2px;
     position: relative;
+    .nav-item {
+        cursor: pointer;
+        * {
+            pointer-events: none;
+        }
+    }
     .svg-text {
         font-size: 1.8rem;
+        text-transform: uppercase;
     }
     ul {
         list-style: none;
@@ -141,8 +148,9 @@ nav {
         .education {
             position: absolute;
             width: 175px;
-            left: 55%;
+            left: 45%;
             top: 275px;
+            transform: rotate(24deg);
             svg {
                 width: 100%;
             }
@@ -153,6 +161,49 @@ nav {
             width: 100px;
             left: 55%;
             top: 160px;
+            svg {
+                width: 100%;
+            }
+        }
+
+        .portfolio {
+            position: absolute;
+            width: 150px;
+            left: 14%;
+            top: 305px;
+            transform: rotate(24deg);
+            svg {
+                width: 100%;
+            }
+        }
+
+        .social {
+            position: absolute;
+            width: 175px;
+            right: 5%;
+            top: 395px;
+            svg {
+                width: 100%;
+            }
+        }
+
+        .shape-hex {
+            position: absolute;
+            width: 130px;
+            right: 5%;
+            top: 230px;
+            transform: rotate(24deg);
+            svg {
+                width: 100%;
+            }
+        }
+
+        .shape3 {
+            position: absolute;
+            width: 130px;
+            left: 40%;
+            top: 400px;
+            transform: rotate(24deg);
             svg {
                 width: 100%;
             }
@@ -179,7 +230,8 @@ nav {
         font-size: 5rem;
         letter-spacing: 5px;
         color: $white;
-        text-shadow: 0px 0px 3px #000;
+        text-shadow: 0px 0px 1px #000;
+        text-transform: uppercase;
         &.is-active {
             animation: fadeIn 500ms ease forwards;
         }
@@ -202,6 +254,10 @@ nav {
 .shape2-1{fill:#81c26b;}
 .education-1{fill:#6baae3;}
 .redbow-1{fill:#ec4c30;}
+.portfolio-1{fill:#d2d058;}
+.shape-hex-1{fill:#e9a8ca;}
+.social-1 {fill:#ec4c30;}
+.shape3-1{fill:#97ddc9;}
 
 @keyframes fadeIn{
     0%{
