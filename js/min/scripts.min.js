@@ -4,6 +4,8 @@ $(document).ready(function() {
     var $navCurtain = $('.nav-curtain');
     var $activeNavItem = $('.active-nav-item');
     var $selfPhoto = $('.self-photo');
+    var $contentContainer = $('.content-container');
+    var $defaultBg = '#c3d7ea';
 
     $navItem.on('click', function(e) {
         console.log(e.target)
@@ -14,6 +16,7 @@ $(document).ready(function() {
         $activeNavItem.append($(this).find('.svg-text').html())
         setTimeout(function() {
             $activeNavItem.css('color', shapeBgColor).addClass('is-active');
+            $contentContainer.css('background-color', shapeBgColor);
             $selfPhoto.addClass('back').children().eq(0).attr('src', 'assets/left-arrow.svg');
          }, 1000);
     })
@@ -30,6 +33,7 @@ $(document).ready(function() {
             setTimeout(function() {
                $hr.removeClass('slide-hr-right slide-hr-left');
                $navCurtain.removeClass('curtain-down curtain-up')
+               $contentContainer.css('background-color', $defaultBg);
             }, 1000);
         }
         // else {
