@@ -5,6 +5,14 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+}
+
+.site-container {
+    border: 5px solid #000;
+    margin: 0 2rem;
+    width: 100%;
+    max-width: 1346px;
 }
 
 header {
@@ -87,7 +95,7 @@ nav {
 
         li {
             display: inline-block;
-            transition: all 500ms ease;
+            transition: all 250ms ease;
         }
 
 
@@ -104,6 +112,7 @@ nav {
                 img {
                     padding: 1rem;
                 }
+                cursor: pointer;
             }
         }
         .about-me {
@@ -297,10 +306,10 @@ nav {
         font-size: 2rem;
         letter-spacing: 5px;
         color: $white;
-        text-shadow: 0px 0px 1px #000;
+        text-shadow: 0px 0px 3px #000;
         text-transform: uppercase;
         &.is-active {
-            animation: fadeIn 500ms ease forwards;
+            animation: fadeIn 250ms ease forwards;
         }
         @include media-query(xl) {
             font-size: 5rem;
@@ -338,6 +347,25 @@ nav {
     .content-container {
         height: 564px;
         background-color: #c3d7ea;
+        padding: 1rem 2rem;
+    }
+
+    .content-block {
+        display: none;
+
+        &.is-active {
+            display: inline-block;
+        }
+
+        .email,
+        .phone,
+        .address {
+            font-size: 2rem;
+            a {
+                color: inherit;
+                border-bottom: 5px solid $darkorange;
+            }
+        }
     }
 }
 
@@ -371,7 +399,7 @@ nav {
 }
 
 .curtain-down {
-    animation: curtainDown 500ms 500ms forwards;
+    animation: curtainDown 250ms 250ms forwards;
 }
 
 @keyframes curtainUp {
@@ -385,7 +413,7 @@ nav {
 }
 
 .curtain-up {
-    animation: curtainUp 500ms forwards;
+    animation: curtainUp 250ms forwards;
 }
 
 @keyframes slideHrLeft {
@@ -399,7 +427,7 @@ nav {
   }
   
   .slide-hr-left {
-    animation: slideHrLeft 500ms forwards;
+    animation: slideHrLeft 250ms forwards;
   }
 
   @keyframes slideHrRight {
@@ -413,5 +441,5 @@ nav {
   }
   
   .slide-hr-right {
-    animation: slideHrRight 500ms forwards;
+    animation: slideHrRight 250ms forwards;
   } 
