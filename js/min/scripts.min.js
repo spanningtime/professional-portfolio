@@ -8,6 +8,13 @@ $(document).ready(function() {
     var $contentBlock = $('.content-block');
     var $defaultBg = '#c3d7ea';
 
+    $('.owl-carousel.about-carousel').owlCarousel({
+        loop: true,
+        nav:true,
+        items: 1,
+        singleItem: true,
+    })
+
     $navItem.on('click', function(e) {
         var classList = $(this).attr('class').split(/\s+/);
         var selectedNav;

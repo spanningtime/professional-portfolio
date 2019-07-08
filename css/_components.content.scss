@@ -348,10 +348,13 @@ nav {
         height: 564px;
         background-color: #c3d7ea;
         padding: 1rem 2rem;
+        overflow: hidden;
     }
 
     .content-block {
         display: none;
+        width: 100%;
+        height: 100%;
 
         &.is-active {
             display: inline-block;
