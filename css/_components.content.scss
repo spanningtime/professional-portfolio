@@ -24,7 +24,7 @@ header {
         & + hr {
             background-color: $white;
         }
-        @include media-query(desk) {
+        @include media-query(xl) {
             font-size: 3rem;
         }
         &:hover {
@@ -43,7 +43,7 @@ header {
         & + hr {
             background-color: $lightblue;
         }
-        @include media-query(desk) {
+        @include media-query(xl) {
             font-size: 3rem;
         }
         &:hover {
@@ -78,7 +78,9 @@ nav {
 
         li {
             display: inline-block;
+            transition: all 500ms ease;
         }
+
 
         .self-photo {
             position: absolute;
@@ -97,115 +99,171 @@ nav {
         }
         .about-me {
             position: absolute;
-            width: 200px;
-            left: 25%;
-            top: 50px;
+            width: 125px;
+            left: 36%;
+            top: 95px;
             svg {
                 width: 100%;
+            }
+            @include media-query(xl) {
+                width: 200px;
+                left: 25%;
+                top: 50px;
             }
         }
         .contact {
             position: absolute;
-            width: 200px;
+            width: 125px;
             left: 60%;
             top: 20px;
             svg {
                 width: 100%;
             }
+            @include media-query(xl) {
+                width: 200px;
+                left: 60%;
+                top: 20px;
+            }
         }
 
         .resume {
             position: absolute;
-            width: 100px;
-            left: 2%;
-            top: 175px;
+            width: 75px;
+            left: -4%;
+            top: 162px;
             svg {
                 width: 100%;
+            }
+            @include media-query(xl) {
+                width: 100px;
+                left: 2%;
+                top: 175px;
             }
         }
 
         .shape-triangle {
             position: absolute;
-            width: 100px;
+            width: 75px;
             right: -2%;
             top: -17px;
             svg {
                 width: 100%;
             }
+            @include media-query(xl) {
+                width: 100px;
+                right: -2%;
+                top: -17px;
+            }
         }
 
-        .shape2 {
+        .shape-squiggle {
             position: absolute;
-            width: 130px;
+            width: 100px;
             left: 22%;
-            top: 200px;
-            transform: rotate(24deg);
+            top: 207px;
+            transform: rotate(-17deg);
             svg {
                 width: 100%;
+            }
+            @include media-query(xl) {
+                width: 130px;
+                left: 22%;
+                top: 200px;
+                transform: rotate(24deg);
             }
         }
 
         .education {
             position: absolute;
-            width: 175px;
-            left: 45%;
-            top: 275px;
+            width: 115px;
+            left: 36%;
+            top: 290px;
             transform: rotate(24deg);
             svg {
                 width: 100%;
+            }
+            @include media-query(xl) {
+                width: 175px;
+                left: 45%;
+                top: 275px;
             }
         }
 
         .shape-redbow {
             position: absolute;
-            width: 100px;
-            left: 55%;
-            top: 160px;
+            width: 70px;
+            left: 64%;
+            top: 179px;
+            transform: rotate(-17deg);
+            transition: all 250ms ease;
             svg {
                 width: 100%;
+            }
+            @include media-query(xl) {
+                width: 100px;
+                left: 55%;
+                top: 160px;
             }
         }
 
         .portfolio {
             position: absolute;
-            width: 150px;
-            left: 14%;
+            width: 101px;
+            left: 2%;
             top: 305px;
             transform: rotate(24deg);
             svg {
                 width: 100%;
             }
+            @include media-query(xl) {
+                width: 150px;
+                left: 14%;
+                top: 305px;
+            }
         }
 
         .social {
             position: absolute;
-            width: 175px;
+            width: 125px;
             right: 5%;
             top: 395px;
             svg {
                 width: 100%;
             }
+            @include media-query(xl) {
+                width: 175px;
+            }
         }
 
         .shape-hex {
             position: absolute;
-            width: 130px;
-            right: 5%;
-            top: 230px;
+            width: 100px;
+            right: -3%;
+            top: 249px;
             transform: rotate(24deg);
             svg {
                 width: 100%;
+            }
+            @include media-query(xl) {
+                width: 130px;
+                right: 5%;
+                top: 230px;
             }
         }
 
         .shape3 {
             position: absolute;
-            width: 130px;
-            left: 40%;
-            top: 400px;
+            width: 113px;
+            left: 9%;
+            top: 410px;
             transform: rotate(24deg);
             svg {
                 width: 100%;
+            }
+            @include media-query(xl) {
+                width: 140px;
+                left: 40%;
+                top: 400px;
             }
         }
         
@@ -227,13 +285,16 @@ nav {
 
     .active-nav-item {
         opacity: 0;
-        font-size: 5rem;
+        font-size: 2rem;
         letter-spacing: 5px;
         color: $white;
         text-shadow: 0px 0px 1px #000;
         text-transform: uppercase;
         &.is-active {
             animation: fadeIn 500ms ease forwards;
+        }
+        @include media-query(xl) {
+            font-size: 5rem;
         }
     }
     &.curtain-up {

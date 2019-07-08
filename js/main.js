@@ -32,8 +32,8 @@ $(document).ready(function() {
                $navCurtain.removeClass('curtain-down curtain-up')
             }, 1000);
         }
-        else {
-            $(this).children().eq(0).css('border', '0')
-        }
+        // else {
+        //     $(this).children().eq(0).css('border', '0')
+        // }
     })
 })
