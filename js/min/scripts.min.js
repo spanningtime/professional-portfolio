@@ -8,12 +8,12 @@ $(document).ready(function() {
     var $contentBlock = $('.content-block');
     var $defaultBg = '#c3d7ea';
 
-    $('.owl-carousel.about-carousel').owlCarousel({
-        loop: true,
-        nav:true,
-        items: 1,
-        singleItem: true,
-    })
+    // $('.owl-carousel.about-carousel').owlCarousel({
+    //     loop: true,
+    //     nav:true,
+    //     items: 1,
+    //     singleItem: true,
+    // })
 
     $('.owl-next').find('span').html('<img src="assets/carousel-arrow-right.svg"/>');
     $('.owl-prev').find('span').html('<img src="assets/carousel-arrow-left.svg"/>');
@@ -36,7 +36,21 @@ $(document).ready(function() {
             $contentContainer.css('background-color', shapeBgColor);
             $contentContainer.find(`[data-name='${selectedNav}']`).addClass('is-active')
             $selfPhoto.addClass('back').children().eq(0).attr('src', 'assets/left-arrow.svg');
+            $('.owl-carousel.about-carousel').owlCarousel({
+                loop: true,
+                nav:true,
+                items: 1,
+                singleItem: true,
+            })
+            $('.owl-next').find('span').html('<img src="assets/carousel-arrow-right.svg"/>');
+            $('.owl-prev').find('span').html('<img src="assets/carousel-arrow-left.svg"/>');
          }, 500);
+         setTimeout(function() {
+            $activeNavItem.css('color', shapeBgColor).addClass('is-active');
+            $contentContainer.css('background-color', shapeBgColor);
+            $contentContainer.find(`[data-name='${selectedNav}']`).addClass('is-active')
+            $selfPhoto.addClass('back').children().eq(0).attr('src', 'assets/left-arrow.svg');
+         }, 600);
     })
 
     $selfPhoto.on('click', function() {
