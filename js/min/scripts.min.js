@@ -12,11 +12,6 @@ $(document).ready(function() {
     var currentAboutSlideNumber = 1;
     var selectedNav;
 
-    function resetAboutSlideCount() {
-        currentAboutSlideNumber = 1;
-        $('.carousel-numbers').html('')
-    }
-
     function appendCarouselNumbers() {
         $('.owl-nav').append(
             `<span class="carousel-numbers">${currentAboutSlideNumber} of ${aboutSlideCount}</span>`
@@ -26,6 +21,29 @@ $(document).ready(function() {
     function replaceCarouselArrows() {
         $('.owl-prev').find('span').html('<img src="assets/carousel-arrow-left.svg"/>');
         $('.owl-next').find('span').html('<img src="assets/carousel-arrow-right.svg"/>');
+    }
+
+    var buildCarousel = function() {
+        carousel = $('.about-carousel').addClass('owl-carousel');
+        carousel.owlCarousel({
+            loop: true,
+            nav:true,
+            items: 1,
+            singleItem: true,
+        })
+        appendCarouselNumbers();
+        replaceCarouselArrows();
+    };
+
+    var destroyCarousel = function() {
+        carousel.trigger('destroy.owl.carousel');
+        carousel = false;
+        $('about-carousel').removeClass('owl-carousel');
+    }
+
+    function resetAboutSlideCount() {
+        currentAboutSlideNumber = 1;
+        $('.carousel-numbers').html('')
     }
 
     function separateNavItemClass(array) {
@@ -50,15 +68,8 @@ $(document).ready(function() {
             $contentContainer.css('background-color', shapeBgColor);
             $contentContainer.find(`[data-name='${selectedNav}']`).addClass('is-active')
             $selfPhoto.addClass('back').children().eq(0).attr('src', 'assets/left-arrow.svg');
-            $('.owl-carousel.about-carousel').owlCarousel({
-                loop: true,
-                nav:true,
-                items: 1,
-                singleItem: true,
-            })
 
-            appendCarouselNumbers();
-            replaceCarouselArrows();
+            buildCarousel();
 
             $('.owl-next').on('click', function() {
                 console.log(currentAboutSlideNumber)
@@ -107,6 +118,7 @@ $(document).ready(function() {
                $navCurtain.removeClass('curtain-down curtain-up')
                $contentContainer.css('background-color', $defaultBg);
                resetAboutSlideCount();
+               destroyCarousel();
             }, 500);
         }
     })
