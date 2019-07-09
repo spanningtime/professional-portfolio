@@ -465,9 +465,15 @@ nav {
             justify-content: space-between;
             position: absolute;
             bottom: 20px;
-            width: 200px;
+            width: 250px;
 
             button:focus{outline:none !important;}
+
+            .carousel-numbers {
+                position: absolute;
+                left: 82px;
+                font-size: 2rem;
+            }
         }
         .owl-next,
         .owl-prev {

@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    //vars
     var $navItem = $('.nav-item');
     var $hr = $('.header-title+hr');
     var $navCurtain = $('.nav-curtain');
@@ -7,30 +8,43 @@ $(document).ready(function() {
     var $contentContainer = $('.content-container');
     var $contentBlock = $('.content-block');
     var $defaultBg = '#c3d7ea';
+    var aboutSlideCount = $('.about-carousel li').length;
+    var currentAboutSlideNumber = 1;
+    var selectedNav;
 
-    // $('.owl-carousel.about-carousel').owlCarousel({
-    //     loop: true,
-    //     nav:true,
-    //     items: 1,
-    //     singleItem: true,
-    // })
+    function resetAboutSlideCount() {
+        currentAboutSlideNumber = 1;
+        $('.carousel-numbers').html('')
+    }
 
-    $('.owl-next').find('span').html('<img src="assets/carousel-arrow-right.svg"/>');
-    $('.owl-prev').find('span').html('<img src="assets/carousel-arrow-left.svg"/>');
+    function appendCarouselNumbers() {
+        $('.owl-nav').append(
+            `<span class="carousel-numbers">${currentAboutSlideNumber} of ${aboutSlideCount}</span>`
+        );
+    }
 
-    $navItem.on('click', function(e) {
-        var classList = $(this).attr('class').split(/\s+/);
-        var selectedNav;
+    function replaceCarouselArrows() {
+        $('.owl-prev').find('span').html('<img src="assets/carousel-arrow-left.svg"/>');
+        $('.owl-next').find('span').html('<img src="assets/carousel-arrow-right.svg"/>');
+    }
+
+    function separateNavItemClass(array) {
+        var classList = array.attr('class').split(/\s+/);
         $.each(classList, function(index, item) {
             if (item !== 'nav-item') {
                 selectedNav = item;
             }
         });
+    }
+
+    $navItem.on('click', function(e) {
+        separateNavItemClass($(this));
         $activeNavItem.text('')
         var shapeBgColor = $(this).find('.svg-background').css('fill');
         $hr.addClass('slide-hr-left');
         $navCurtain.addClass('curtain-down');
         $activeNavItem.append($(this).find('.svg-text').html())
+
         setTimeout(function() {
             $activeNavItem.css('color', shapeBgColor).addClass('is-active');
             $contentContainer.css('background-color', shapeBgColor);
@@ -42,9 +56,33 @@ $(document).ready(function() {
                 items: 1,
                 singleItem: true,
             })
-            $('.owl-next').find('span').html('<img src="assets/carousel-arrow-right.svg"/>');
-            $('.owl-prev').find('span').html('<img src="assets/carousel-arrow-left.svg"/>');
+
+            appendCarouselNumbers();
+            replaceCarouselArrows();
+
+            $('.owl-next').on('click', function() {
+                console.log(currentAboutSlideNumber)
+                if (currentAboutSlideNumber === aboutSlideCount) {
+                    currentAboutSlideNumber = 1;
+                } 
+                else {
+                    currentAboutSlideNumber += 1;
+                }
+                return $('.carousel-numbers').html(`${currentAboutSlideNumber} of ${aboutSlideCount}`)
+            })
+
+            $('.owl-prev').on('click', function() {
+                if (currentAboutSlideNumber === 1) {
+                    currentAboutSlideNumber = aboutSlideCount;
+                } 
+                else {
+                    currentAboutSlideNumber -= 1;
+                }
+                $('.carousel-numbers').html(`${currentAboutSlideNumber} of ${aboutSlideCount}`)
+            })
+
          }, 500);
+
          setTimeout(function() {
             $activeNavItem.css('color', shapeBgColor).addClass('is-active');
             $contentContainer.css('background-color', shapeBgColor);
@@ -54,6 +92,7 @@ $(document).ready(function() {
     })
 
     $selfPhoto.on('click', function() {
+        $('owl-carousel.about-carousel').owlCarousel('destroy')
         if ($(this).hasClass('back')) {
             $selfPhoto.children().eq(0).attr('src', 'assets/me.png').css('border', '10px solid #f59236');
             $activeNavItem.removeClass('is-active').text('');
@@ -67,6 +106,7 @@ $(document).ready(function() {
                $hr.removeClass('slide-hr-right slide-hr-left');
                $navCurtain.removeClass('curtain-down curtain-up')
                $contentContainer.css('background-color', $defaultBg);
+               resetAboutSlideCount();
             }, 500);
         }
     })
