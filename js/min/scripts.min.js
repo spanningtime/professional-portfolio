@@ -15,6 +15,9 @@ $(document).ready(function() {
         singleItem: true,
     })
 
+    $('.owl-next').find('span').html('<img src="assets/carousel-arrow-right.svg"/>');
+    $('.owl-prev').find('span').html('<img src="assets/carousel-arrow-left.svg"/>');
+
     $navItem.on('click', function(e) {
         var classList = $(this).attr('class').split(/\s+/);
         var selectedNav;
@@ -52,5 +55,22 @@ $(document).ready(function() {
                $contentContainer.css('background-color', $defaultBg);
             }, 500);
         }
+    })
+
+    $selfPhoto.on('mouseenter', function() {
+        if (!$(this).hasClass('back')) {
+            $selfPhoto.children().eq(0).attr('src', 'assets/me-drawn.jpg')
+        }
+    })
+    $selfPhoto.on('mouseleave', function() {
+        if (!$(this).hasClass('back')) {
+            $selfPhoto.children().eq(0).attr('src', 'assets/me.png')
+        }
+    })
+
+    $('.about-img').each(function() {
+        $(this).on('click', function() {
+            $(this).addClass('grow-img')
+        })
     })
 })
