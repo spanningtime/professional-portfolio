@@ -403,13 +403,12 @@ nav {
             text-shadow: 0 0 2px black;
             text-align: center;
             text-transform: uppercase;
+            margin-top: 2.8rem;
         }
     }
     .about-carousel {
         position: relative;
         height: 100%;
-        // display: none;
-        // justify-content: center;
         &.owl-loaded {
             display: flex;
             justify-content: center;
@@ -417,16 +416,15 @@ nav {
                 display: flex;
             }
         }
-        .owl-carousel.loading{
-
-            display:none;
-           
-           }
         .about-headline {
             font-size: 3rem;
+            margin: 1rem 0;
             text-shadow: 0 0 2px #000;
             text-transform: uppercase;
             color: $darkpink;
+        }
+        .about-copy {
+            margin-top: 0;
         }
         .about-img {
             width: 200px;
@@ -480,6 +478,10 @@ nav {
             width: 50px;
         }
     }
+}
+
+.portfolio-carousel {
+    height: 100%;
 }
 
 @keyframes fadeIn{

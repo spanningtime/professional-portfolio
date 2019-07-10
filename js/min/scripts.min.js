@@ -23,7 +23,7 @@ $(document).ready(function() {
         $('.owl-next').find('span').html('<img src="assets/carousel-arrow-right.svg"/>');
     }
 
-    var buildCarousel = function() {
+    var buildAboutCarousel = function() {
         carousel = $('.about-carousel').addClass('owl-carousel');
         carousel.owlCarousel({
             loop: true,
@@ -35,15 +35,74 @@ $(document).ready(function() {
         replaceCarouselArrows();
     };
 
-    var destroyCarousel = function() {
+    var destroyAboutCarousel = function() {
         carousel.trigger('destroy.owl.carousel');
         carousel = false;
         $('about-carousel').removeClass('owl-carousel');
     }
 
+    var buildPortfolioCarousel = function() {
+        carousel = $('.portfolio-carousel').addClass('owl-carousel');
+        carousel.owlCarousel({
+            loop: true,
+            nav:true,
+            items: 1,
+            singleItem: true,
+        })
+        appendCarouselNumbers();
+        replaceCarouselArrows();
+    };
+
+    var destroyPortfolioCarousel = function() {
+        carousel.trigger('destroy.owl.carousel');
+        carousel = false;
+        $('portfolio-carousel').removeClass('owl-carousel');
+    }
+
+    var buildWebsitesCarousel = function() {
+        carousel = $('.websites-carousel').addClass('owl-carousel');
+        carousel.owlCarousel({
+            loop: true,
+            nav:true,
+            items: 1,
+            singleItem: true,
+        })
+        appendCarouselNumbers();
+        replaceCarouselArrows();
+    };
+
+    var destroyWebsitesCarousel = function() {
+        carousel.trigger('destroy.owl.carousel');
+        carousel = false;
+        $('websites-carousel').removeClass('owl-carousel');
+    }
+
     function resetAboutSlideCount() {
         currentAboutSlideNumber = 1;
         $('.carousel-numbers').html('')
+    }
+
+    function handleCarouselArrows() {
+        $('button[class^="owl-"]').on('click', function() {
+            if ($(this).hasClass('owl-next')) {
+                if (currentAboutSlideNumber === aboutSlideCount) {
+                    currentAboutSlideNumber = 1;
+                } 
+                else {
+                    currentAboutSlideNumber += 1;
+                }
+                return $('.carousel-numbers').html(`${currentAboutSlideNumber} of ${aboutSlideCount}`)
+            }
+            if ($(this).hasClass('owl-prev')) {
+                if (currentAboutSlideNumber === 1) {
+                    currentAboutSlideNumber = aboutSlideCount;
+                } 
+                else {
+                    currentAboutSlideNumber -= 1;
+                }
+                $('.carousel-numbers').html(`${currentAboutSlideNumber} of ${aboutSlideCount}`)
+            }
+        })
     }
 
     function separateNavItemClass(array) {
@@ -68,30 +127,14 @@ $(document).ready(function() {
             $contentContainer.css('background-color', shapeBgColor);
             $contentContainer.find(`[data-name='${selectedNav}']`).addClass('is-active')
             $selfPhoto.addClass('back').children().eq(0).attr('src', 'assets/left-arrow.svg');
-
-            buildCarousel();
-
-            $('.owl-next').on('click', function() {
-                console.log(currentAboutSlideNumber)
-                if (currentAboutSlideNumber === aboutSlideCount) {
-                    currentAboutSlideNumber = 1;
-                } 
-                else {
-                    currentAboutSlideNumber += 1;
-                }
-                return $('.carousel-numbers').html(`${currentAboutSlideNumber} of ${aboutSlideCount}`)
-            })
-
-            $('.owl-prev').on('click', function() {
-                if (currentAboutSlideNumber === 1) {
-                    currentAboutSlideNumber = aboutSlideCount;
-                } 
-                else {
-                    currentAboutSlideNumber -= 1;
-                }
-                $('.carousel-numbers').html(`${currentAboutSlideNumber} of ${aboutSlideCount}`)
-            })
-
+            if (selectedNav === 'about-me') {
+                buildAboutCarousel();
+                handleCarouselArrows();
+            }
+            if (selectedNav === 'portfolio') {
+                buildPortfolioCarousel();
+                handleCarouselArrows();
+            }
          }, 500);
 
          setTimeout(function() {
@@ -117,8 +160,14 @@ $(document).ready(function() {
                $hr.removeClass('slide-hr-right slide-hr-left');
                $navCurtain.removeClass('curtain-down curtain-up')
                $contentContainer.css('background-color', $defaultBg);
-               resetAboutSlideCount();
-               destroyCarousel();
+               if (selectedNav === 'about-me') {
+                resetAboutSlideCount();
+                destroyAboutCarousel();
+               }
+               if (selectedNav === 'portfolio') {
+                resetPortfolioSlideCount();
+                destroyPortfolioCarousel();
+               }
             }, 500);
         }
     })
