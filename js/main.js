@@ -10,11 +10,17 @@ $(document).ready(function() {
     var $defaultBg = '#c3d7ea';
     var aboutSlideCount = $('.about-carousel li').length;
     var currentAboutSlideNumber = 1;
+    var portfolioSlideCount = $('.portfolio-carousel li').length;
+    console.log(portfolioSlideCount)
+    var currentPortfolioSlideNumber = 1;
     var selectedNav;
 
     function appendCarouselNumbers() {
-        $('.owl-nav').append(
+        $('.about-carousel .owl-nav').append(
             `<span class="carousel-numbers">${currentAboutSlideNumber} of ${aboutSlideCount}</span>`
+        );
+        $('.portfolio-carousel .owl-nav').append(
+            `<span class="carousel-numbers">${currentAboutSlideNumber} of ${portfolioSlideCount}</span>`
         );
     }
 
@@ -30,6 +36,16 @@ $(document).ready(function() {
             nav:true,
             items: 1,
             singleItem: true,
+        })
+        carousel.on('changed.owl.carousel', function(event) {
+            var currentAboutSlideNumber = event.item.index - 2;
+            if (currentAboutSlideNumber === 0) {
+                currentAboutSlideNumber = aboutSlideCount;
+            }
+            if (currentAboutSlideNumber === aboutSlideCount + 1) {
+                currentAboutSlideNumber = 1
+            }
+            $('.carousel-numbers').html(`${currentAboutSlideNumber} of ${aboutSlideCount}`)
         })
         appendCarouselNumbers();
         replaceCarouselArrows();
@@ -49,6 +65,16 @@ $(document).ready(function() {
             items: 1,
             singleItem: true,
         })
+        carousel.on('changed.owl.carousel', function(event) {
+            var currentPortfolioSlideNumber = event.item.index - 1;
+            if (currentPortfolioSlideNumber === 0) {
+                currentPortfolioSlideNumber = portfolioSlideCount;
+            }
+            if (currentPortfolioSlideNumber === portfolioSlideCount + 1) {
+                currentPortfolioSlideNumber = 1
+            }
+            $('.carousel-numbers').html(`${currentPortfolioSlideNumber} of ${portfolioSlideCount}`)
+        })
         appendCarouselNumbers();
         replaceCarouselArrows();
     };
@@ -59,50 +85,14 @@ $(document).ready(function() {
         $('portfolio-carousel').removeClass('owl-carousel');
     }
 
-    var buildWebsitesCarousel = function() {
-        carousel = $('.websites-carousel').addClass('owl-carousel');
-        carousel.owlCarousel({
-            loop: true,
-            nav:true,
-            items: 1,
-            singleItem: true,
-        })
-        appendCarouselNumbers();
-        replaceCarouselArrows();
-    };
-
-    var destroyWebsitesCarousel = function() {
-        carousel.trigger('destroy.owl.carousel');
-        carousel = false;
-        $('websites-carousel').removeClass('owl-carousel');
-    }
-
-    function resetAboutSlideCount() {
+    function resetaboutSlideCount() {
         currentAboutSlideNumber = 1;
         $('.carousel-numbers').html('')
     }
 
-    function handleCarouselArrows() {
-        $('button[class^="owl-"]').on('click', function() {
-            if ($(this).hasClass('owl-next')) {
-                if (currentAboutSlideNumber === aboutSlideCount) {
-                    currentAboutSlideNumber = 1;
-                } 
-                else {
-                    currentAboutSlideNumber += 1;
-                }
-                return $('.carousel-numbers').html(`${currentAboutSlideNumber} of ${aboutSlideCount}`)
-            }
-            if ($(this).hasClass('owl-prev')) {
-                if (currentAboutSlideNumber === 1) {
-                    currentAboutSlideNumber = aboutSlideCount;
-                } 
-                else {
-                    currentAboutSlideNumber -= 1;
-                }
-                $('.carousel-numbers').html(`${currentAboutSlideNumber} of ${aboutSlideCount}`)
-            }
-        })
+    function resetPortfolioSlideCount() {
+        currentPortfolioSlideNumber = 1;
+        $('.carousel-numbers').html('')
     }
 
     function separateNavItemClass(array) {
@@ -129,11 +119,11 @@ $(document).ready(function() {
             $selfPhoto.addClass('back').children().eq(0).attr('src', 'assets/left-arrow.svg');
             if (selectedNav === 'about-me') {
                 buildAboutCarousel();
-                handleCarouselArrows();
+                // handleCarouselArrows();
             }
             if (selectedNav === 'portfolio') {
                 buildPortfolioCarousel();
-                handleCarouselArrows();
+                // handleCarouselArrows();
             }
          }, 500);
 
@@ -161,7 +151,7 @@ $(document).ready(function() {
                $navCurtain.removeClass('curtain-down curtain-up')
                $contentContainer.css('background-color', $defaultBg);
                if (selectedNav === 'about-me') {
-                resetAboutSlideCount();
+                resetaboutSlideCount();
                 destroyAboutCarousel();
                }
                if (selectedNav === 'portfolio') {

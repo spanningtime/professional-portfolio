@@ -480,8 +480,22 @@ nav {
     }
 }
 
-.portfolio-carousel {
-    height: 100%;
+.portfolio {
+    &__work-headline {
+        font-size: 3rem;
+        text-shadow: 0 0 2px black;
+        text-transform: uppercase;
+        margin: 0;
+        color: $lightblue;
+    }
+    &-carousel {
+        height: 100%;
+    }
+    
+    &__slide-title,
+    &__work-headline {
+        text-align: center;
+    }
 }
 
 @keyframes fadeIn{
