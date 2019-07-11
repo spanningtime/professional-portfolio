@@ -11,7 +11,6 @@ $(document).ready(function() {
     var aboutSlideCount = $('.about-carousel li').length;
     var currentAboutSlideNumber = 1;
     var portfolioSlideCount = $('.portfolio-carousel li').length;
-    console.log(portfolioSlideCount)
     var currentPortfolioSlideNumber = 1;
     var selectedNav;
 
@@ -25,8 +24,8 @@ $(document).ready(function() {
     }
 
     function replaceCarouselArrows() {
-        $('.owl-prev').find('span').html('<img src="assets/carousel-arrow-left.svg"/>');
-        $('.owl-next').find('span').html('<img src="assets/carousel-arrow-right.svg"/>');
+        // $('.owl-prev').find('span').html('<img src="assets/carousel-arrow-left.svg"/>');
+        // $('.owl-next').find('span').html('<img src="assets/carousel-arrow-right.svg"/>');
     }
 
     var buildAboutCarousel = function() {
@@ -56,7 +55,22 @@ $(document).ready(function() {
         carousel = false;
         $('about-carousel').removeClass('owl-carousel');
     }
+    
+    $('.portfolio-carousel__slide').on('mouseenter', function() {
+        console.log('mousey')
+        $(this).children('.portfolio__work-overlay').toggleClass('description-active');
+    })
+    $('.portfolio-carousel__slide').on('mouseleave', function() {
+        console.log('mousey')
+        $(this).children('.portfolio__work-overlay').toggleClass('description-active');
+    })
 
+    // var portfolioSlideArr = [];
+
+    // $('.portfolio-carousel__slide').each(function() {
+    //     portfolioSlideArr.push($(this).data('work'))
+    // })
+    // console.log(portfolioSlideArr)
     var buildPortfolioCarousel = function() {
         carousel = $('.portfolio-carousel').addClass('owl-carousel');
         carousel.owlCarousel({
@@ -66,7 +80,7 @@ $(document).ready(function() {
             singleItem: true,
         })
         carousel.on('changed.owl.carousel', function(event) {
-            var currentPortfolioSlideNumber = event.item.index - 1;
+            var currentPortfolioSlideNumber = event.item.index - 2;
             if (currentPortfolioSlideNumber === 0) {
                 currentPortfolioSlideNumber = portfolioSlideCount;
             }
@@ -74,7 +88,10 @@ $(document).ready(function() {
                 currentPortfolioSlideNumber = 1
             }
             $('.carousel-numbers').html(`${currentPortfolioSlideNumber} of ${portfolioSlideCount}`)
-        })
+            var workType = $('.portfolio-carousel__slide').eq(currentPortfolioSlideNumber - 3).data('work');
+            $('.portfolio__work-headline').html(workType)
+            console.log($('.portfolio-carousel__slide').eq(4).data('work'));
+        })  
         appendCarouselNumbers();
         replaceCarouselArrows();
     };
