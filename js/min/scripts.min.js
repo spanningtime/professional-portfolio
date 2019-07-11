@@ -91,11 +91,9 @@ $(document).ready(function() {
     }
     
     $('.portfolio-carousel__slide').on('mouseenter', function() {
-        console.log('mousey')
         $(this).children('.portfolio__work-overlay').toggleClass('description-active');
     })
     $('.portfolio-carousel__slide').on('mouseleave', function() {
-        console.log('mousey')
         $(this).children('.portfolio__work-overlay').toggleClass('description-active');
     })
 
@@ -117,7 +115,7 @@ $(document).ready(function() {
                 currentPortfolioSlideNumber = 1
             }
             $('.carousel-numbers').html(`${currentPortfolioSlideNumber} of ${portfolioSlideCount}`)
-            var workType = $('.portfolio-carousel__slide').eq(currentPortfolioSlideNumber - 4).data('work');
+            var workType = $('.portfolio-carousel__slide').eq(currentPortfolioSlideNumber - 1).data('work');
             $('.portfolio__work-headline').html(workType)
             console.log($('.portfolio-carousel__slide').eq(4).data('work'));
         })  
