@@ -506,6 +506,14 @@ nav {
     .portfolio {
         &-carousel__slide {
             position: relative;
+            &[data-work="email"] {
+                width: 90%;
+                margin: 0 auto;
+            }
+            &[data-work="animations"] {
+                overflow-y: scroll;
+                height: 370px;
+            }
             
         }
         &__work-overlay {
@@ -519,7 +527,7 @@ nav {
             height: 0;
             background-color: $chartreuse;
             font-size: 1.5rem;
-            padding: 1rem;
+            padding: 0;
             text-align: center;
             transition: all 200ms ease-in-out;
             color: #000;
@@ -530,6 +538,7 @@ nav {
             }
             &.description-active {
                 height: 115px;
+                padding: 1rem;
                 transition: all 200ms ease-in-out;
                 p {
                     opacity: 1;
@@ -683,4 +692,110 @@ nav {
     to {
       height: 100px;
     }
+  }
+
+  // Financial Advisor styles
+.dots-l, .dots-r {
+    opacity: 0;
+  }
+  
+  
+  .dollar-icon,
+  .cross-icon,
+  .car-icon,
+  .grad-hat-icon,
+  .shopping-cart-icon,
+  .airplane-icon,
+  .monument-icon,
+  .leaf-icon {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  //dots animations
+  @keyframes bounceFlashLeft {
+    0% {
+      transform: translateY(0);
+    }
+    5% {
+      transform: translateY(0);
+      fill: #8DD4E0;
+    }
+    10% {
+      transform: translateY(-10px);
+      fill: #ffffff;
+    }
+    15% {
+      transform: translateY(0px);
+      fill: #8DD4E0;
+    }
+    25% {
+      transform: translateY(0px);
+      fill: #8DD4E0;
+    }
+    30% {
+      transform: translateY(-10px);
+      fill: #ffffff;
+    }
+    35% {
+      transform: translateY(0);
+      fill: #8DD4E0;
+    }
+    100% {
+      transform: translateY(0);
+      fill: #8DD4E0;
+    }
+  }
+
+  @keyframes bounceFlashRight {
+    0% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(0);
+      fill: #8DD4E0;
+    }
+    45% {
+      transform: translateY(-10px);
+      fill: #ffffff;
+    }
+    50% {
+      transform: translateY(0px);
+      fill: #8DD4E0;
+    }
+    60% {
+      transform: translateY(0px);
+      fill: #8DD4E0;
+    }
+    65% {
+      transform: translateY(-10px);
+      fill: #ffffff;
+    }
+    70% {
+      transform: translateY(0);
+      fill: #8DD4E0;
+    }
+    100% {
+      transform: translateY(0);
+      fill: #8DD4E0;
+    }
+  }
+
+  .dots-l.dot-1 {
+    animation: fadeIn .5s .5s forwards, bounceFlashLeft 4s 1s infinite;
+  }
+  .dots-l.dot-2 {
+    animation: fadeIn .5s .5s forwards, bounceFlashLeft 4s 1.15s infinite;
+  }
+  .dots-l.dot-3 {
+    animation: fadeIn .5s .5s forwards, bounceFlashLeft 4s 1.3s infinite;
+  }
+  .dots-r.dot-1 {
+    animation: fadeIn .5s 1s forwards, bounceFlashRight 4s 1.6s infinite;
+  }
+  .dots-r.dot-2 {
+    animation: fadeIn .5s 1s forwards, bounceFlashRight 4s 1.75s infinite;
+  }
+  .dots-r.dot-3 {
+    animation: fadeIn 1s 1s forwards, bounceFlashRight 4s 1.9s infinite;
   }
