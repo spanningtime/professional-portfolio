@@ -1,3 +1,24 @@
+// helpers
+.bg-pink {
+    background-color: $lightpink;
+}
+
+html {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    padding:0;
+    margin: 0;
+  }
+  
+  body {
+    height: 100%;
+    padding: 0;
+    overflow: auto;
+    margin: 0;
+    -webkit-overflow-scrolling: touch;
+  }
+
 main {
     background: url(../assets/bg.jpg);
     background-size: cover;
@@ -44,10 +65,6 @@ header {
         @include media-query(xl) {
             font-size: 3rem;
         }
-        &:hover {
-            background-color: $blue;
-            color: $lightpink;
-        }
     }
     .header-title {
         background-color: $green;
@@ -62,11 +79,6 @@ header {
         }
         @include media-query(xl) {
             font-size: 3rem;
-        }
-        &:hover {
-            background-color: $lightpink;
-            color: $green;
-            border-left: 20px solid $lightblue;
         }
     }
 }
@@ -83,6 +95,9 @@ nav {
         cursor: pointer;
         * {
             pointer-events: none;
+        }
+        &:hover {
+            transform: rotate(5deg);
         }
     }
     .svg-text {
@@ -192,7 +207,7 @@ nav {
             }
         }
 
-        .education {
+        .skills {
             position: absolute;
             width: 115px;
             left: 36%;
@@ -302,6 +317,14 @@ nav {
     justify-content: center;
     align-items: center;
 
+    &.curtain-down {
+        animation: curtainDown 250ms 250ms forwards;
+      }
+    &.curtain-up {
+        height: 100%;
+        animation: curtainUp 250ms forwards;
+    }
+
     .active-nav-item {
         opacity: 0;
         font-size: 2rem;
@@ -316,9 +339,7 @@ nav {
             font-size: 5rem;
         }
     }
-    &.curtain-up {
-        height: 100%;
-    }
+    
 }
 
 .about-me-1 {
@@ -332,7 +353,7 @@ nav {
 }
 .resume-1{fill:#f59236;}
 .shape2-1{fill:#81c26b;}
-.education-1{fill:#6baae3;}
+.skills-1{fill:#6baae3;}
 .redbow-1{fill:#ec4c30;}
 .portfolio-1{fill:#d2d058;}
 .shape-hex-1{fill:#e9a8ca;}
@@ -366,6 +387,14 @@ nav {
             display: inline-block;
             &[data-name="resume"] {
                 margin: 16px 0;
+            }
+            &[data-name="home"] {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                img {
+                    width: 80%;
+                }
             }
         }
 
@@ -513,6 +542,20 @@ nav {
             &[data-work="animations"] {
                 overflow-y: scroll;
                 height: 370px;
+                text-align: center;
+
+                .scroll-prompt {
+                    position: absolute;
+                    top: 10px;
+                    left: 10px;
+                    font-size: 2rem;
+                    color: $lightpink;
+                    // text-shadow: none;
+                    animation: smokeTravel 8s linear infinite;
+                    // &.is-active {
+                    //     text-shadow: 0 0 20px black;
+                    // }
+                }
             }
             
         }
@@ -605,94 +648,91 @@ nav {
             text-align: center;
         }
     }
+    .animation-container {
+        line-height: 0;
+        &.half {
+            width: 40%;
+            display: inline-block;
+            margin: 1rem;
+        }
+    }
+}
+
+.skills {
+    overflow-y: scroll;
+    position: relative;
+    &__headline {
+        font-size: 3rem;
+        text-shadow: 0 0 2px black;
+        text-transform: uppercase;
+        margin: 0;
+        text-align: center;
+        color: $lightblue;
+    }
+    &__copy {
+        font-size: 1.5rem;
+        &.plus:before {
+            content: url('../assets/shape-plus.svg');
+            width: 30px;
+            height: 30px;
+            display: inline-block;
+            margin-right: 1rem;
+        }
+        &.slash:before {
+            content: url('../assets/shape-slash.svg');
+            width: 30px;
+            height: 30px;
+            display: inline-block;
+            margin-right: 1rem;
+        }
+        &.charlie:before {
+            content: url('../assets/shape-charliebrown.svg');
+            width: 30px;
+            height: 30px;
+            display: inline-block;
+            margin-right: 1rem;
+        }
+    }
+    &__scroll-prompt {
+        position: fixed;
+        transform: rotate(90deg);
+        color: $lightpink;
+        font-size: 3rem;
+        width: 75px;
+        transition: transform .2s cubic-bezier(1, -0.01, 0, 1.01);
+        transform-origin: 37.5px 37.5px;
+        border-bottom: none !important;
+        &.up {
+            transform: rotate(-90deg);
+        }
+        &-container {
+            position: absolute;
+            width: 75px;
+            height: 75px;
+            bottom: 6%;
+            right: 0;
+        }
+    }
+}
+
+.social {
+    &__headline {
+        font-size: 3rem;
+        text-shadow: 0 0 2px black;
+        text-transform: uppercase;
+        margin: 0;
+        text-align: center;
+        color: $darkpink;
+    }
+    &__item {
+        font-size: 2.5rem;
+        line-height: 4.5rem;
+    }
 }
 
 
 
-@keyframes fadeIn{
-    0%{
-      opacity: 0;
-      transform: scale(0.3) translate3d(0,0,0);
-    }
-    50%{
-      opacity: 0.9;
-      transform: scale(1.1);
-    }
-    80%{
-      opacity: 1;
-      transform: scale(0.89);
-    }
-    100%{
-      opacity: 1;
-      transform: scale(1) translate3d(0,0,0);
-    }
-  }
 
-@keyframes curtainDown {
-    from {
-        height: 0%;
-    }
-
-    to {
-        height: 100%;
-    }
-}
-
-.curtain-down {
-    animation: curtainDown 250ms 250ms forwards;
-}
-
-@keyframes curtainUp {
-    from {
-        height: 100%;
-    }
-
-    to {
-        height: 0%;
-    }
-}
-
-.curtain-up {
-    animation: curtainUp 250ms forwards;
-}
-
-@keyframes slideHrLeft {
-    from {
-      transform: translateX(0)
-    }
-  
-    to {
-      transform: translateX(-100%);
-    }
-  }
-  
-  .slide-hr-left {
-    animation: slideHrLeft 250ms forwards;
-  }
-
-  @keyframes slideHrRight {
-    from {
-      transform: translateX(-100%)
-    }
-  
-    to {
-      transform: translateX(0%);
-    }
-  }
-  
-  .slide-hr-right {
-    animation: slideHrRight 250ms forwards;
-  } 
-
-  @keyframes descriptionPopUp {
-    from {
-      height: 0;
-    }
-  
-    to {
-      height: 100px;
-    }
-  }
 
   // Financial Advisor styles
 .dots-l, .dots-r {
@@ -712,74 +752,7 @@ nav {
     visibility: hidden;
   }
 
-  //dots animations
-  @keyframes bounceFlashLeft {
-    0% {
-      transform: translateY(0);
-    }
-    5% {
-      transform: translateY(0);
-      fill: #8DD4E0;
-    }
-    10% {
-      transform: translateY(-10px);
-      fill: #ffffff;
-    }
-    15% {
-      transform: translateY(0px);
-      fill: #8DD4E0;
-    }
-    25% {
-      transform: translateY(0px);
-      fill: #8DD4E0;
-    }
-    30% {
-      transform: translateY(-10px);
-      fill: #ffffff;
-    }
-    35% {
-      transform: translateY(0);
-      fill: #8DD4E0;
-    }
-    100% {
-      transform: translateY(0);
-      fill: #8DD4E0;
-    }
-  }
-
-  @keyframes bounceFlashRight {
-    0% {
-      transform: translateY(0);
-    }
-    40% {
-      transform: translateY(0);
-      fill: #8DD4E0;
-    }
-    45% {
-      transform: translateY(-10px);
-      fill: #ffffff;
-    }
-    50% {
-      transform: translateY(0px);
-      fill: #8DD4E0;
-    }
-    60% {
-      transform: translateY(0px);
-      fill: #8DD4E0;
-    }
-    65% {
-      transform: translateY(-10px);
-      fill: #ffffff;
-    }
-    70% {
-      transform: translateY(0);
-      fill: #8DD4E0;
-    }
-    100% {
-      transform: translateY(0);
-      fill: #8DD4E0;
-    }
-  }
+  
 
   .dots-l.dot-1 {
     animation: fadeIn .5s .5s forwards, bounceFlashLeft 4s 1s infinite;
@@ -799,3 +772,54 @@ nav {
   .dots-r.dot-3 {
     animation: fadeIn 1s 1s forwards, bounceFlashRight 4s 1.9s infinite;
   }
+
+  .adv-man__train {
+    max-width: 500px;
+    padding: 1.5rem 0;
+    &-1 {
+        fill: #01c1d6;
+    }
+    &-2 {
+        fill: none;
+        stroke: #fff;
+        stroke-miterlimit: 10;
+        stroke-width: 4px;
+    }
+}
+
+.adv-man__machines {
+    max-width: 500px;
+    padding: 1.5rem 0;
+    &-1 {
+        fill: #fff;
+    }
+    &-2 {
+        fill: #01c1d6;
+    }
+    &-3 {
+        fill: #171636;
+    }
+}
+
+.adv-man__network {
+    max-width: 500px;
+    padding: 1.5rem 0;
+    &-0 {
+        fill: #FFFFFF;
+    }
+    &-1 {
+        fill: #333333;
+    }
+    &-2 {
+        fill: #01C1D6;
+    }
+    &-3 {
+        fill: none;
+        stroke: #01C1D6;
+        stroke-width: 2;
+        stroke-miterlimit: 10;
+    }
+}
+.adv-man__platform {
+    fill: #333;
+}
