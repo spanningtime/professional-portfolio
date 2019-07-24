@@ -245,13 +245,13 @@ $(document).ready(function() {
         })
     })
 
-    function toggleUp() {
-        $('.skills__scroll-prompt').toggleClass('up')
-    }
+    // function toggleUp() {
+    //     $('.skills__scroll-prompt').toggleClass('up')
+    // }
 
     function checkArrow(arrow) {
         console.log(arrow)
-        toggleUp()
+        // toggleUp()
         if (arrow.hasClass('up')) {
             arrow.attr('href', '#dev')
         }
@@ -259,16 +259,19 @@ $(document).ready(function() {
             arrow.attr('href', '#design')
         }
     }
-
-    var lastScrollTop = 0;
+    var skScrollPrompt = $('.skills__scroll-prompt');
     $('.skills').scroll(function(event) {
+        console.log('hey')
         var st = $(this).scrollTop();
-        console.log()
-        if (st === 517){
-            checkArrow($('.skills__scroll-prompt'))
+        console.log(st);
+        if (st >= skScrollPrompt.height()){
+            skScrollPrompt.attr('href', '#dev');
+            skScrollPrompt.addClass('up');
+            // checkArrow(skScrollPrompt)
         } 
         if (st === 0) {
-            checkArrow($('.skills__scroll-prompt'))
+            skScrollPrompt.attr('href', '#design');
+            skScrollPrompt.removeClass('up');
         }
         lastScrollTop = st;
     });
@@ -281,7 +284,7 @@ $(document).ready(function() {
             scrollTop: $($(this).attr('href')).offset().top,
           },
           250,
-          'linear'
+          'linear',
         );
       })
 

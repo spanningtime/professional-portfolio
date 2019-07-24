@@ -27,13 +27,17 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-size: 0;
 }
 
 .site-container {
     border: 5px solid #000;
     margin: 0 2rem;
     width: 100%;
-    max-width: 1346px;
+    max-width: 975px;
+    @include media-query(xl) {
+        max-width: 1346px;
+    }
 }
 
 header {
@@ -87,7 +91,7 @@ nav {
     background-color: $lightpink;
     width: 50%;
     display: block;
-    padding: 1rem 2rem;
+    padding: 2rem 2rem;
     margin-top: -2px;
     position: relative;
     float:left;
@@ -107,7 +111,10 @@ nav {
     ul {
         list-style: none;
         position: relative;
-        height: 500px;
+        height: 400px;
+        @include media-query(xl) {
+            height: 500px;
+        }
 
         li {
             display: inline-block;
@@ -117,18 +124,24 @@ nav {
 
         .self-photo {
             position: absolute;
-            width: 150px;
+            width: 100px;
             z-index: 99999;
             img {
                 border-radius: 50%;
-                border: 10px solid $darkorange;
+                border: 7px solid $darkorange;
                 padding: 0;
+                @include media-query(xl) {
+                    border: 10px solid $darkorange;
+                }
             }
             &.back {
                 img {
                     padding: 1rem;
                 }
                 cursor: pointer;
+            }
+            @include media-query(xl) {
+                width: 150px;
             }
         }
         .about-me {
@@ -138,6 +151,11 @@ nav {
             top: 95px;
             svg {
                 width: 100%;
+            }
+            @include media-query(desk) {
+                left: 22%;
+                top: 40px;
+                width: 140px;
             }
             @include media-query(xl) {
                 width: 200px;
@@ -153,6 +171,9 @@ nav {
             svg {
                 width: 100%;
             }
+            @include media-query(desk) {
+                width: 145px;
+            }
             @include media-query(xl) {
                 width: 200px;
                 left: 60%;
@@ -167,6 +188,9 @@ nav {
             top: 162px;
             svg {
                 width: 100%;
+            }
+            @include media-query(desk) {
+                top: 122px;
             }
             @include media-query(xl) {
                 width: 100px;
@@ -199,6 +223,9 @@ nav {
             svg {
                 width: 100%;
             }
+            @include media-query(desk) {
+                top: 175px;
+            }
             @include media-query(xl) {
                 width: 130px;
                 left: 22%;
@@ -213,8 +240,13 @@ nav {
             left: 36%;
             top: 290px;
             transform: rotate(24deg);
+            overflow: visible;
             svg {
                 width: 100%;
+            }
+            @include media-query(desk) {
+                top: 250px;
+                width: 140px;
             }
             @include media-query(xl) {
                 width: 175px;
@@ -233,6 +265,11 @@ nav {
             svg {
                 width: 100%;
             }
+            @include media-query(desk) {
+                top: 150px;
+                left: 54%;
+                width: 95px;
+            }
             @include media-query(xl) {
                 width: 100px;
                 left: 55%;
@@ -249,6 +286,10 @@ nav {
             svg {
                 width: 100%;
             }
+            @include media-query(desk) {
+                top: 250px;
+                width: 115px;
+            }
             @include media-query(xl) {
                 width: 150px;
                 left: 14%;
@@ -264,8 +305,13 @@ nav {
             svg {
                 width: 100%;
             }
+            @include media-query(desk) {
+                top: 340px;
+                width: 140px;
+            }
             @include media-query(xl) {
                 width: 175px;
+                top: 395px;
             }
         }
 
@@ -277,6 +323,9 @@ nav {
             transform: rotate(24deg);
             svg {
                 width: 100%;
+            }
+            @include media-query(desk) {
+                top: 220px;
             }
             @include media-query(xl) {
                 width: 130px;
@@ -293,6 +342,10 @@ nav {
             transform: rotate(24deg);
             svg {
                 width: 100%;
+            }
+            @include media-query(desk) {
+                top: 330px;
+                left: 22%;
             }
             @include media-query(xl) {
                 width: 140px;
@@ -335,6 +388,9 @@ nav {
         &.is-active {
             animation: fadeIn 250ms ease forwards;
         }
+        @include media-query(desk) {
+            font-size: 3rem;
+        }
         @include media-query(xl) {
             font-size: 5rem;
         }
@@ -367,10 +423,13 @@ nav {
     margin-top: -2px;
 
     .content-container {
-        height: 564px;
+        height: 464px;
         background-color: #c3d7ea;
         padding: 1rem 2rem;
         overflow: hidden;
+        @include media-query(xl) {
+            height: 564px;
+        }
     }
 
     .content-block {
@@ -402,37 +461,52 @@ nav {
             text-transform: uppercase;
             color: #81c26b;
             text-shadow: 0px 0px 2px black;
-            font-size: 4.5rem;
+            font-size: 3.2rem;
             margin-top: 0;
+            @include media-query(xl) {
+                font-size: 4.5rem;
+            }
         }
         .email,
         .phone,
         .address {
-            font-size: 2rem;
+            font-size: 1.7rem;
+            @include media-query(xl) {
+                font-size: 2rem;
+            }
             a {
                 color: inherit;
                 border-bottom: 5px solid $lightpink;
             }
         }
         .resume-btn {
-            width: 150px;
-            height: 150px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
             border: 10px solid $lightblue;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 5rem;
+            font-size: 3rem;
             color: $lightblue;
             text-shadow: 0 0 2px black;
+            @include media-query(xl) {
+                width: 150px;
+                height: 150px;
+                font-size: 5rem;
+            }
         }
         .resume-copy {
-            font-size: 5rem;
+            font-size: 3rem;
             color: $lightblue;
             text-shadow: 0 0 2px black;
             text-align: center;
             text-transform: uppercase;
-            margin-top: 2.8rem;
+            margin-top: 4.1rem;
+            @include media-query(xl) {
+                font-size: 5rem;
+                margin-top: 2.8rem;
+            }
         }
     }
     .about-carousel {
@@ -470,20 +544,25 @@ nav {
             }
         }
         .about-headline {
-            font-size: 3rem;
+            font-size: 2.5rem;
             margin: 1rem 0;
             text-shadow: 0 0 2px #000;
             text-transform: uppercase;
             color: $darkpink;
+            @include media-query(xl) {
+                font-size: 3rem;
+            }
         }
         .about-copy {
             margin-top: 0;
         }
         .about-img {
-            width: 200px;
+            width: 175px;
             border-radius: 50%;
             margin: 0 auto;
-
+            @include media-query(xl) {
+                width: 200px;
+            }
             &.grow-img {
                 transform: scale(2);
                 z-index: 1000;
@@ -508,7 +587,10 @@ nav {
                 text-align: center;
             }
             .about-copy {
-                font-size: 2rem;
+                font-size: 1.5rem;
+                @include media-query(xl) {
+                    font-size: 2rem;
+                }
             }
         }
         .owl-nav {
@@ -583,6 +665,10 @@ nav {
                 height: 115px;
                 padding: 1rem;
                 transition: all 200ms ease-in-out;
+                font-size: 1.25rem;
+                @include media-query(xl) {
+                    font-size: 1.5rem;
+                }
                 p {
                     opacity: 1;
                     transition: all 200ms 100ms ease-in-out;
@@ -592,6 +678,10 @@ nav {
         &-carousel.owl-loaded {
             display: flex;
             justify-content: center;
+            padding-bottom: 10rem;
+            @include media-query(xl) {
+                padding-bottom: 0;
+            }
             .owl-nav {
                 display: flex;
                 justify-content: space-between;
@@ -670,7 +760,12 @@ nav {
         color: $lightblue;
     }
     &__copy {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
+        margin: 0.8rem 0;
+        @include media-query(xl) {
+            font-size: 1.5rem;
+            margin: 1.5rem 0;
+        }
         &.plus:before {
             content: url('../assets/shape-plus.svg');
             width: 30px;
@@ -773,8 +868,16 @@ nav {
     animation: fadeIn 1s 1s forwards, bounceFlashRight 4s 1.9s infinite;
   }
 
+  .animations-container {
+      svg {
+          max-width: 380px;
+          @include media-query(xl) {
+              max-width: 500px;
+          }
+      }
+  }
+
   .adv-man__train {
-    max-width: 500px;
     padding: 1.5rem 0;
     &-1 {
         fill: #01c1d6;
@@ -788,7 +891,6 @@ nav {
 }
 
 .adv-man__machines {
-    max-width: 500px;
     padding: 1.5rem 0;
     &-1 {
         fill: #fff;
@@ -802,7 +904,6 @@ nav {
 }
 
 .adv-man__network {
-    max-width: 500px;
     padding: 1.5rem 0;
     &-0 {
         fill: #FFFFFF;
