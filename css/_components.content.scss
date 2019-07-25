@@ -991,3 +991,12 @@ nav {
 .adv-man__platform {
     fill: #333;
 }
+
+.adv-man__train-wheel,
+.adv-man__gear {
+    -webkit-transform-origin: 50% 50%;
+    -moz-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    transform-box: fill-box;
+    animation: rotate 10s infinite linear;
+}

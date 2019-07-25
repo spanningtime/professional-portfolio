@@ -346,26 +346,26 @@ $(document).ready(function() {
             scrollPrompt = $('.scroll-prompt');
 
         var trainWheelTimeline = new TimelineMax({repeat: -1, repeatDelay: 0});
-            trainWheelTimeline.fromTo(
-                trainWheel1, 10, 
-                { rotation: '-1800', transformOrigin: '129.79249572753906 434.29351806640625', ease:Linear.easeNone }, 
-                { rotation: '0', transformOrigin: '129.79249572753906 434.29351806640625', ease:Linear.easeNone }, 0
-            );
-            trainWheelTimeline.fromTo(
-                trainWheel2, 10, 
-                { rotation: '-1800', transformOrigin: '298.76100158691406 434.16050720214844', ease:Linear.easeNone }, 
-                { rotation: '0', transformOrigin: '298.76100158691406 434.16050720214844', ease:Linear.easeNone }, 0
-            );
-            trainWheelTimeline.fromTo(
-                trainWheel3, 10, 
-                { rotation: '-1800', transformOrigin: '536.8579406738281 483.6579895019531', ease:Linear.easeNone }, 
-                { rotation: '0', transformOrigin: '536.8579406738281 483.6579895019531', ease:Linear.easeNone }, 0
-            );
-            trainWheelTimeline.fromTo(
-                trainWheel4, 10, 
-                { rotation: '-1800', transformOrigin: '629.6579895019531 483.6579895019531', ease:Linear.easeNone }, 
-                { rotation: '0', transformOrigin: '629.6579895019531 483.6579895019531', ease:Linear.easeNone }, 0
-            );
+            // trainWheelTimeline.fromTo(
+            //     trainWheel1, 10, 
+            //     { rotation: '-1800', transformOrigin: '129.79249572753906 434.29351806640625', ease:Linear.easeNone }, 
+            //     { rotation: '0', transformOrigin: '129.79249572753906 434.29351806640625', ease:Linear.easeNone }, 0
+            // );
+            // trainWheelTimeline.fromTo(
+            //     trainWheel2, 10, 
+            //     { rotation: '-1800', transformOrigin: '298.76100158691406 434.16050720214844', ease:Linear.easeNone }, 
+            //     { rotation: '0', transformOrigin: '298.76100158691406 434.16050720214844', ease:Linear.easeNone }, 0
+            // );
+            // trainWheelTimeline.fromTo(
+            //     trainWheel3, 10, 
+            //     { rotation: '-1800', transformOrigin: '536.8579406738281 483.6579895019531', ease:Linear.easeNone }, 
+            //     { rotation: '0', transformOrigin: '536.8579406738281 483.6579895019531', ease:Linear.easeNone }, 0
+            // );
+            // trainWheelTimeline.fromTo(
+            //     trainWheel4, 10, 
+            //     { rotation: '-1800', transformOrigin: '629.6579895019531 483.6579895019531', ease:Linear.easeNone }, 
+            //     { rotation: '0', transformOrigin: '629.6579895019531 483.6579895019531', ease:Linear.easeNone }, 0
+            // );
 
         var trainSmokeTimeline = new TimelineMax({ repeat: -1, repeatDelay: 0});
             trainSmokeTimeline.fromTo(trainSmoke1, 1, {drawSVG: '0'}, {drawSVG: '100%'}, 0);
@@ -400,50 +400,50 @@ $(document).ready(function() {
                 gear11 = $('.adv-man__gear-11');
 
 			var gearTimeline = new TimelineMax({repeat: -1, repeatDelay: 0});
-                gearTimeline.fromTo(
-                    gear1, 20, 
-                    {rotation: '-1800', transformOrigin: '256.9604721069336 333.62591552734375', ease:Linear.easeNone }, 
-                    { rotation: '0', transformOrigin: '256.9604721069336 333.62591552734375', ease:Linear.easeNone }, 0);
-                gearTimeline.fromTo(
-                    gear2, 20, 
-                    {rotation: '-1800', transformOrigin: '290.44097900390625 333.23951721191406', ease:Linear.easeNone }, 
-                    { rotation: '0', transformOrigin: '290.44097900390625 333.23951721191406', ease:Linear.easeNone }, 0);
-                gearTimeline.fromTo(
-                    gear3, 20, 
-                    {rotation: '-1800', transformOrigin: '324.240966796875 333.23951721191406', ease:Linear.easeNone }, 
-                    { rotation: '0', transformOrigin: '324.240966796875 333.23951721191406', ease:Linear.easeNone }, 0);
-                gearTimeline.fromTo(
-                    gear4, 20, 
-                    {rotation: '-1800', transformOrigin: '358.36048889160156 333.62591552734375', ease:Linear.easeNone }, 
-                    { rotation: '0', transformOrigin: '358.36048889160156 333.62591552734375', ease:Linear.easeNone }, 0);
-                gearTimeline.fromTo(
-                    gear5, 20, 
-                    {rotation: '-1800', transformOrigin: '391.8409729003906 333.23951721191406', ease:Linear.easeNone }, 
-                    { rotation: '0', transformOrigin: '391.8409729003906 333.23951721191406', ease:Linear.easeNone }, 0);
-                gearTimeline.fromTo(
-                    gear6, 20, 
-                    {rotation: '-1800', transformOrigin: '425.96046447753906 333.62591552734375', ease:Linear.easeNone }, 
-                    { rotation: '0', transformOrigin: '425.96046447753906 333.62591552734375', ease:Linear.easeNone }, 0);
-                gearTimeline.fromTo(
-                    gear7, 20, 
-                    {rotation: '-1800', transformOrigin: '459.76048278808594 333.62591552734375', ease:Linear.easeNone }, 
-                    { rotation: '0', transformOrigin: '459.76048278808594 333.62591552734375', ease:Linear.easeNone }, 0);
-                gearTimeline.fromTo(
-                    gear8, 20, 
-                    {rotation: '-1800', transformOrigin: '493.240966796875 333.23951721191406', ease:Linear.easeNone }, 
-                    { rotation: '0', transformOrigin: '493.240966796875 333.23951721191406', ease:Linear.easeNone }, 0);
-                gearTimeline.fromTo(
-                    gear9, 20, 
-                    {rotation: '-1800', transformOrigin: '527.3604736328125 333.62591552734375', ease:Linear.easeNone }, 
-                    { rotation: '0', transformOrigin: '527.3604736328125 333.62591552734375', ease:Linear.easeNone }, 0);
-                gearTimeline.fromTo(
-                    gear10, 20, 
-                    {rotation: '-1800', transformOrigin: '797.4409484863281 333.23951721191406', ease:Linear.easeNone }, 
-                    { rotation: '0', transformOrigin: '797.4409484863281 333.23951721191406', ease:Linear.easeNone }, 0);
-                gearTimeline.fromTo(
-                    gear11, 20, 
-                    {rotation: '-1800', transformOrigin: '831.5604858398438 333.62591552734375', ease:Linear.easeNone }, 
-                    { rotation: '0', transformOrigin: '831.5604858398438 333.62591552734375', ease:Linear.easeNone }, 0);
+                // gearTimeline.fromTo(
+                //     gear1, 20, 
+                //     {rotation: '-1800', transformOrigin: '256.9604721069336 333.62591552734375', ease:Linear.easeNone }, 
+                //     { rotation: '0', transformOrigin: '256.9604721069336 333.62591552734375', ease:Linear.easeNone }, 0);
+                // gearTimeline.fromTo(
+                //     gear2, 20, 
+                //     {rotation: '-1800', transformOrigin: '290.44097900390625 333.23951721191406', ease:Linear.easeNone }, 
+                //     { rotation: '0', transformOrigin: '290.44097900390625 333.23951721191406', ease:Linear.easeNone }, 0);
+                // gearTimeline.fromTo(
+                //     gear3, 20, 
+                //     {rotation: '-1800', transformOrigin: '324.240966796875 333.23951721191406', ease:Linear.easeNone }, 
+                //     { rotation: '0', transformOrigin: '324.240966796875 333.23951721191406', ease:Linear.easeNone }, 0);
+                // gearTimeline.fromTo(
+                //     gear4, 20, 
+                //     {rotation: '-1800', transformOrigin: '358.36048889160156 333.62591552734375', ease:Linear.easeNone }, 
+                //     { rotation: '0', transformOrigin: '358.36048889160156 333.62591552734375', ease:Linear.easeNone }, 0);
+                // gearTimeline.fromTo(
+                //     gear5, 20, 
+                //     {rotation: '-1800', transformOrigin: '391.8409729003906 333.23951721191406', ease:Linear.easeNone }, 
+                //     { rotation: '0', transformOrigin: '391.8409729003906 333.23951721191406', ease:Linear.easeNone }, 0);
+                // gearTimeline.fromTo(
+                //     gear6, 20, 
+                //     {rotation: '-1800', transformOrigin: '425.96046447753906 333.62591552734375', ease:Linear.easeNone }, 
+                //     { rotation: '0', transformOrigin: '425.96046447753906 333.62591552734375', ease:Linear.easeNone }, 0);
+                // gearTimeline.fromTo(
+                //     gear7, 20, 
+                //     {rotation: '-1800', transformOrigin: '459.76048278808594 333.62591552734375', ease:Linear.easeNone }, 
+                //     { rotation: '0', transformOrigin: '459.76048278808594 333.62591552734375', ease:Linear.easeNone }, 0);
+                // gearTimeline.fromTo(
+                //     gear8, 20, 
+                //     {rotation: '-1800', transformOrigin: '493.240966796875 333.23951721191406', ease:Linear.easeNone }, 
+                //     { rotation: '0', transformOrigin: '493.240966796875 333.23951721191406', ease:Linear.easeNone }, 0);
+                // gearTimeline.fromTo(
+                //     gear9, 20, 
+                //     {rotation: '-1800', transformOrigin: '527.3604736328125 333.62591552734375', ease:Linear.easeNone }, 
+                //     { rotation: '0', transformOrigin: '527.3604736328125 333.62591552734375', ease:Linear.easeNone }, 0);
+                // gearTimeline.fromTo(
+                //     gear10, 20, 
+                //     {rotation: '-1800', transformOrigin: '797.4409484863281 333.23951721191406', ease:Linear.easeNone }, 
+                //     { rotation: '0', transformOrigin: '797.4409484863281 333.23951721191406', ease:Linear.easeNone }, 0);
+                // gearTimeline.fromTo(
+                //     gear11, 20, 
+                //     {rotation: '-1800', transformOrigin: '831.5604858398438 333.62591552734375', ease:Linear.easeNone }, 
+                //     { rotation: '0', transformOrigin: '831.5604858398438 333.62591552734375', ease:Linear.easeNone }, 0);
 
 		// MACHINES | ARMS //
         var leftArm = $('.adv-man__left-arm'),
