@@ -1000,3 +1000,45 @@ nav {
     transform-box: fill-box;
     animation: rotate 10s infinite linear;
 }
+
+.adv-man__left-arm {
+    -webkit-transform-origin: 18% 82% 0;
+    -moz-transform-origin: 18% 82% 0;
+    transform-origin: 18% 82% 0;
+    transform-box: fill-box;
+}
+
+.adv-man__left-arm-mid {
+    -webkit-transform-origin: 18% 82% 0;
+    -moz-transform-origin: 18% 82% 0;
+    transform-origin: 18% 82% 0;
+    transform-box: fill-box;
+}
+
+.adv-man__left-arm-top {
+    -webkit-transform-origin: 5% 5% 0;
+    -moz-transform-origin: 5% 5% 0;
+    transform-origin: 5% 5% 0;
+    transform-box: fill-box;
+}
+
+.adv-man__right-arm {
+    -webkit-transform-origin: 67% 82% 0;
+    -moz-transform-origin: 67% 82% 0;
+    transform-origin: 67% 82% 0;
+    transform-box: fill-box;
+}
+
+.adv-man__right-arm-mid {
+    -webkit-transform-origin: 95% 90% 0;
+    -moz-transform-origin: 95% 90% 0;
+    transform-origin: 95% 90% 0;
+    transform-box: fill-box;
+}
+
+.adv-man__right-arm-top {
+    -webkit-transform-origin: 95% 5% 0;
+    -moz-transform-origin: 95% 5% 0;
+    transform-origin: 95% 5% 0;
+    transform-box: fill-box;
+}

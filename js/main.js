@@ -457,61 +457,61 @@ $(document).ready(function() {
             //LEFT ARM
             machineArmTimeline.fromTo(
                 leftArm, 1, 
-                { rotation: '0', transformOrigin: '118.62169647216797 191.51089582443237', ease:Linear.easeNone },
-                { rotation: '5', transformOrigin: '118.62169647216797 191.51089582443237', ease:Linear.easeNone }, 0);
+                { rotation: '0', ease:Linear.easeNone },
+                { rotation: '5', ease:Linear.easeNone }, 0);
             machineArmTimeline.fromTo(
                 leftArm, 1, 
-                { rotation: '5', transformOrigin: '118.62169647216797 191.51089582443237', ease:Linear.easeNone },
-                { rotation: '0', transformOrigin: '118.62169647216797 191.51089582443237', ease:Linear.easeNone }, 2);
+                { rotation: '5', ease:Linear.easeNone },
+                { rotation: '0', ease:Linear.easeNone }, 2);
             machineArmTimeline.fromTo(
                 leftArmMid, 1, 
-                { rotation: '0', transformOrigin: '119.63960052490233 164.60807814121245', ease:Linear.easeNone },
-                { rotation: '12', transformOrigin: '119.63960052490233 164.60807814121245', ease:Linear.easeNone }, 0);
+                { rotation: '0', ease:Linear.easeNone },
+                { rotation: '12', ease:Linear.easeNone }, 0);
             machineArmTimeline.fromTo(
                 leftArmMid, 1, 
-                { rotation: '12', transformOrigin: '119.63960052490233 164.60807814121245', ease:Linear.easeNone },
-                { rotation: '0', transformOrigin: '119.63960052490233 164.60807814121245', ease:Linear.easeNone }, 2);
+                { rotation: '12', ease:Linear.easeNone },
+                { rotation: '0', ease:Linear.easeNone }, 2);
             machineArmTimeline.fromTo(
                 leftArmTop, 1, 
-                { rotation: '0', transformOrigin: '168.52391967773437 8.835502121970057', ease:Linear.easeNone },
-                { rotation: '20', transformOrigin: '168.52391967773437 8.835502121970057', ease:Linear.easeNone }, 0);
+                { rotation: '0', ease:Linear.easeNone },
+                { rotation: '20', ease:Linear.easeNone }, 0);
             machineArmTimeline.fromTo(
                 leftArmTop, 1, 
-                { rotation: '20', transformOrigin: '168.52391967773437 8.835502121970057', ease:Linear.easeNone },
-                { rotation: '0', transformOrigin: '168.52391967773437 8.835502121970057', ease:Linear.easeNone }, 2);
+                { rotation: '20', ease:Linear.easeNone },
+                { rotation: '0', ease:Linear.easeNone }, 2);
             //RIGHT ARM
             machineArmTimeline.fromTo(
                 rightArm, 1, 
-                { rotation: '0', transformOrigin: '165.1667987060547 173.53953079223632', ease:Linear.easeNone },
-                { rotation: '-25', transformOrigin: '165.1667987060547 173.53953079223632', ease:Linear.easeNone }, 0.5);
+                { rotation: '0', ease:Linear.easeNone },
+                { rotation: '-25', ease:Linear.easeNone }, 0.5);
             machineArmTimeline.fromTo(
                 rightArm, 1, 
-                { rotation: '-25', transformOrigin: '165.1667987060547 173.53953079223632', ease:Linear.easeNone },
-                { rotation: '0', transformOrigin: '165.1667987060547 173.53953079223632', ease:Linear.easeNone }, 2);
+                { rotation: '-25', ease:Linear.easeNone },
+                { rotation: '0', ease:Linear.easeNone }, 2);
             machineArmTimeline.fromTo(
                 rightArmMid, 1, 
-                { rotation: '0', transformOrigin: '237.12760467529296 106.6060832977295', ease:Linear.easeNone },
-                { rotation: '-5', transformOrigin: '237.12760467529296 106.6060832977295', ease:Linear.easeNone }, 0.5);
+                { rotation: '0', ease:Linear.easeNone },
+                { rotation: '-5', ease:Linear.easeNone }, 0.5);
             machineArmTimeline.fromTo(
                 rightArmMid, 1, 
-                { rotation: '-5', transformOrigin: '237.12760467529296 106.6060832977295', ease:Linear.easeNone },
-                { rotation: '0', transformOrigin: '237.12760467529296 106.6060832977295', ease:Linear.easeNone }, 2);
+                { rotation: '-5', ease:Linear.easeNone },
+                { rotation: '0', ease:Linear.easeNone }, 2);
             machineArmTimeline.fromTo(
                 rightArmTop, 1, 
-                { rotation: '0', transformOrigin: '50% 50% 0', ease:Linear.easeNone },
-                { rotation: '-10', transformOrigin: '173.0015869140625 4.710519409179688', ease:Linear.easeNone }, 0.5);
+                { rotation: '0',  ease:Linear.easeNone },
+                { rotation: '-10', ease:Linear.easeNone }, 0.5);
             machineArmTimeline.fromTo(
                 rightArmTop, 0.5, 
-                { rotation: '-10', transformOrigin: '173.0015869140625 4.710519409179688', ease:Linear.easeNone },
-                { rotation: '10', transformOrigin: '173.0015869140625 4.710519409179688', ease:Linear.easeNone }, 1.5);
+                { rotation: '-10', ease:Linear.easeNone },
+                { rotation: '10', ease:Linear.easeNone }, 1.5);
             machineArmTimeline.fromTo(
                 rightArmTop, 0.5, 
-                { rotation: '10', transformOrigin: '173.0015869140625 4.710519409179688', ease:Linear.easeNone },
-                { rotation: '-10', transformOrigin: '173.0015869140625 4.710519409179688', ease:Linear.easeNone }, 2);
+                { rotation: '10', ease:Linear.easeNone },
+                { rotation: '-10', ease:Linear.easeNone }, 2);
             machineArmTimeline.fromTo(
                 rightArmTop, 0.5, 
-                { rotation: '-10', transformOrigin: '173.0015869140625 4.710519409179688', ease:Linear.easeNone },
-                { rotation: '0', transformOrigin: '173.0015869140625 4.710519409179688', ease:Linear.easeNone }, 2);
+                { rotation: '-10', ease:Linear.easeNone },
+                { rotation: '0', ease:Linear.easeNone }, 2);
   // ------****** END MACHINES ANIMATIONS ******------ //
 
     // ------****** NETWORK ANIMATIONS ******------ //
