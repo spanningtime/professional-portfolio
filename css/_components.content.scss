@@ -34,7 +34,10 @@ main {
     border: 5px solid #000;
     margin: 0 2rem;
     width: 100%;
-    max-width: 975px;
+    max-width: 715px;
+    @include media-query(desk) {
+        max-width: 975px;
+    }
     @include media-query(xl) {
         max-width: 1346px;
     }
@@ -56,45 +59,47 @@ header {
         margin: 0;
         height: 20px;
     }
-    .header-name {
-        background-color: $lightpink;
-        margin: 0;
-        color: $blue;
+    .header-name,
+    .header-title {
         text-align: center;
+        font-size: 2rem;
         padding: 1rem;
-        font-size: 2.5rem;
-        & + hr {
-            background-color: transparent;
+        margin: 0;
+        @include media-query(desk) {
+            font-size: 2.5rem;
         }
         @include media-query(xl) {
             font-size: 3rem;
         }
     }
+    .header-name {
+        background-color: $lightpink;
+        color: $blue;
+        & + hr {
+            background-color: transparent;
+        }
+    }
     .header-title {
         background-color: $green;
         color: $lightpink;
-        text-align: center;
-        margin: 0;
-        padding: 1rem;
-        font-size: 2.5rem;
         border-left: 20px solid $green;
         & + hr {
             background-color: $lightblue;
-        }
-        @include media-query(xl) {
-            font-size: 3rem;
         }
     }
 }
 
 nav {
     background-color: $lightpink;
-    width: 50%;
+    width: 100%;
     display: block;
     padding: 2rem 2rem;
     margin-top: -2px;
     position: relative;
     float:left;
+    @include media-query(desk) {
+        width: 50%;
+    }
     .nav-item {
         cursor: pointer;
         * {
@@ -111,7 +116,10 @@ nav {
     ul {
         list-style: none;
         position: relative;
-        height: 400px;
+        height: 150px;
+        @include media-query(desk) {
+            height: 400px;
+        }
         @include media-query(xl) {
             height: 500px;
         }
@@ -148,7 +156,7 @@ nav {
             position: absolute;
             width: 125px;
             left: 36%;
-            top: 95px;
+            top: 0px;
             svg {
                 width: 100%;
             }
@@ -166,12 +174,14 @@ nav {
         .contact {
             position: absolute;
             width: 125px;
-            left: 60%;
-            top: 20px;
+            left: 71%;
+            top: -24px;
             svg {
                 width: 100%;
             }
             @include media-query(desk) {
+                left: 60%;
+                top: 20px;
                 width: 145px;
             }
             @include media-query(xl) {
@@ -184,12 +194,13 @@ nav {
         .resume {
             position: absolute;
             width: 75px;
-            left: -4%;
-            top: 162px;
+            left: 57%;
+            top: -15px;
             svg {
                 width: 100%;
             }
             @include media-query(desk) {
+                left: -4%;
                 top: 122px;
             }
             @include media-query(xl) {
@@ -218,12 +229,13 @@ nav {
             position: absolute;
             width: 100px;
             left: 22%;
-            top: 207px;
+            top: 0px;
             transform: rotate(-17deg);
             svg {
                 width: 100%;
             }
             @include media-query(desk) {
+                left: 22%;
                 top: 175px;
             }
             @include media-query(xl) {
@@ -237,14 +249,15 @@ nav {
         .skills {
             position: absolute;
             width: 115px;
-            left: 36%;
-            top: 290px;
+            left: 27%;
+            top: 90px;
             transform: rotate(24deg);
             overflow: visible;
             svg {
                 width: 100%;
             }
             @include media-query(desk) {
+                left: 36%;
                 top: 250px;
                 width: 140px;
             }
@@ -258,8 +271,8 @@ nav {
         .shape-redbow {
             position: absolute;
             width: 70px;
-            left: 64%;
-            top: 179px;
+            left: 47%;
+            top: 100px;
             transform: rotate(-17deg);
             transition: all 250ms ease;
             svg {
@@ -280,13 +293,15 @@ nav {
         .portfolio {
             position: absolute;
             width: 101px;
-            left: 2%;
-            top: 305px;
+            left: 10%;
+            top: 63px;
             transform: rotate(24deg);
             svg {
                 width: 100%;
             }
             @include media-query(desk) {
+                left: 2%;
+                top: 305px;
                 top: 250px;
                 width: 115px;
             }
@@ -300,12 +315,14 @@ nav {
         .social {
             position: absolute;
             width: 125px;
-            right: 5%;
-            top: 395px;
+            right: -2%;
+            top: 86px;
             svg {
                 width: 100%;
             }
             @include media-query(desk) {
+                right: 5%;
+            top: 395px;
                 top: 340px;
                 width: 140px;
             }
@@ -318,13 +335,15 @@ nav {
         .shape-hex {
             position: absolute;
             width: 100px;
-            right: -3%;
-            top: 249px;
+            right: 18%;
+            top: 65px;
             transform: rotate(24deg);
             svg {
                 width: 100%;
             }
             @include media-query(desk) {
+                right: -3%;
+                top: 249px;
                 top: 220px;
             }
             @include media-query(xl) {
@@ -337,13 +356,13 @@ nav {
         .shape3 {
             position: absolute;
             width: 113px;
-            left: 9%;
-            top: 410px;
+            display:none;
             transform: rotate(24deg);
             svg {
                 width: 100%;
             }
             @include media-query(desk) {
+                display: inline-block;
                 top: 330px;
                 left: 22%;
             }
@@ -380,7 +399,7 @@ nav {
 
     .active-nav-item {
         opacity: 0;
-        font-size: 2rem;
+        font-size: 3rem;
         letter-spacing: 5px;
         color: $white;
         text-shadow: 0px 0px 2px #000;
@@ -417,11 +436,13 @@ nav {
 .shape3-1{fill:#97ddc9;}
 
 .content {
-    width: 50%;
+    width: 100%;
     display: inline-block;
     float: right;
     margin-top: -2px;
-
+    @include media-query(desk) {
+        width: 50%;
+    }
     .content-container {
         height: 464px;
         background-color: #c3d7ea;
@@ -461,8 +482,11 @@ nav {
             text-transform: uppercase;
             color: #81c26b;
             text-shadow: 0px 0px 2px black;
-            font-size: 3.2rem;
+            font-size: 3.8rem;
             margin-top: 0;
+            @include media-query(desk) {
+                font-size: 3.2rem;
+            }
             @include media-query(xl) {
                 font-size: 4.5rem;
             }
@@ -617,14 +641,28 @@ nav {
     .portfolio {
         &-carousel__slide {
             position: relative;
+            margin-top: 3rem;
+            @include media-query(desk) {
+                margin-top: 1rem;
+            }
             &[data-work="email"] {
                 width: 90%;
-                margin: 0 auto;
-            }
+                margin: 3rem auto 0;
+                @include media-query(desk) {
+                    margin: 1rem auto 0
+                }
+            } 
             &[data-work="animations"] {
                 overflow-y: scroll;
                 height: 370px;
                 text-align: center;
+                margin-top: 1rem;
+                width: 500px;
+                margin: 0 auto;
+                @include media-query(desk) {
+                    margin-top: 1rem;
+                    width: 100%;
+                }
 
                 .scroll-prompt {
                     position: absolute;
@@ -632,34 +670,45 @@ nav {
                     left: 10px;
                     font-size: 2rem;
                     color: $lightpink;
-                    // text-shadow: none;
                     animation: smokeTravel 8s linear infinite;
-                    // &.is-active {
-                    //     text-shadow: 0 0 20px black;
-                    // }
                 }
             }
-            
+            a img {
+                @include span(6);
+                @include media-query(desk) {
+                    float: none;
+                    width: 100%;
+                }
+            }
         }
         &__work-overlay {
-            position: absolute;
+            position: relative;
             display: flex;
             align-items: center;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            width: 100%;
-            height: 0;
+            @include span(6 last);
             background-color: $chartreuse;
-            font-size: 1.5rem;
+            font-size: 1.25rem;
             padding: 0;
+            height: 188px;
             text-align: center;
             transition: all 200ms ease-in-out;
             color: #000;
+            @include media-query(desk) {
+                font-size: 1.5rem;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: 0;
+                width: 100%;
+            }
             p {
                 transition: all 100ms ease-in-out;
                 margin: 0;
-                opacity: 0;
+                opacity: 1;
+                @include media-query(desk) {
+                    opacity: 0;
+                }
             }
             &.description-active {
                 height: 115px;

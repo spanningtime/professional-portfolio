@@ -54,7 +54,6 @@ $(document).ready(function() {
     var shapesArr = ['shape-charliebrown', 'shape-circle', 'shape-4', 'shape-L', 'shape-plus', 'shape-slash'];
 
     function addRandomShape() {
-        console.log('adding')
         var currentShape = shapesArr[getRandomInt(shapesArr.length)];
             $("[data-name='home']")
                 .addClass('is-active')
@@ -72,10 +71,6 @@ $(document).ready(function() {
         );
     }
 
-    function replaceCarouselArrows() {
-        // $('.owl-prev').find('span').html('<img src="assets/carousel-arrow-left.svg"/>');
-        // $('.owl-next').find('span').html('<img src="assets/carousel-arrow-right.svg"/>');
-    }
 
     var buildAboutCarousel = function() {
         carousel = $('.about-carousel').addClass('owl-carousel');
@@ -96,7 +91,6 @@ $(document).ready(function() {
             $('.carousel-numbers').html(`${currentAboutSlideNumber} of ${aboutSlideCount}`)
         })
         appendCarouselNumbers();
-        replaceCarouselArrows();
     };
 
     var destroyAboutCarousel = function() {
@@ -106,6 +100,9 @@ $(document).ready(function() {
     }
     
     $('.portfolio-carousel__slide').on('mouseenter', function() {
+        if ($(window).width() <= 768) {
+           return false
+        }
         $(this).children('.portfolio__work-overlay').toggleClass('description-active');
     })
     $('.portfolio-carousel__slide').on('mouseleave', function() {
@@ -132,10 +129,8 @@ $(document).ready(function() {
             $('.carousel-numbers').html(`${currentPortfolioSlideNumber} of ${portfolioSlideCount}`)
             var workType = $('.portfolio-carousel__slide').eq(currentPortfolioSlideNumber - 1).data('work');
             $('.portfolio__work-headline').html(workType)
-            console.log($('.portfolio-carousel__slide').eq(4).data('work'));
         })  
         appendCarouselNumbers();
-        replaceCarouselArrows();
     };
 
     var destroyPortfolioCarousel = function() {
@@ -245,25 +240,9 @@ $(document).ready(function() {
         })
     })
 
-    // function toggleUp() {
-    //     $('.skills__scroll-prompt').toggleClass('up')
-    // }
-
-    function checkArrow(arrow) {
-        console.log(arrow)
-        // toggleUp()
-        if (arrow.hasClass('up')) {
-            arrow.attr('href', '#dev')
-        }
-        else {
-            arrow.attr('href', '#design')
-        }
-    }
     var skScrollPrompt = $('.skills__scroll-prompt');
     $('.skills').scroll(function(event) {
-        console.log('hey')
         var st = $(this).scrollTop();
-        console.log(st);
         if (st >= skScrollPrompt.height()){
             skScrollPrompt.attr('href', '#dev');
             skScrollPrompt.addClass('up');
