@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Bryce Benson",
+  "author": "William Knight",
   "license": "ISC",
   "devDependencies": {
     "browser-sync": "^2.18.8",
@@ -22,6 +22,8 @@
     "gulp-watch": "^4.3.11"
   },
   "dependencies": {
+    "gulp-include": "^2.4.1",
+    "gulp-twig": "^1.2.0",
     "owl.carousel": "^2.3.4"
   }
 }
